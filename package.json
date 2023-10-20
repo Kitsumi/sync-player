@@ -1,0 +1,28 @@
+{
+  "name": "sync-player",
+  "version": "0.0.1",
+  "description": "Basic YouTube watch together service",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kitsumi/sync-player.git"
+  },
+  "author": "Kit",
+  "bugs": {
+    "url": "https://github.com/Kitsumi/sync-player/issues"
+  },
+  "homepage": "https://github.com/Kitsumi/sync-player#readme",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "express": "^4.18.2",
+    "linkedom": "^0.15.6",
+    "mime": "^3.0.0",
+    "ws": "^8.14.2"
+  }
+}

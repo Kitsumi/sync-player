@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vibin' Party</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="theme-color" content="#FFFF00">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&amp;family=Atkinson+Hyperlegible&amp;display=swap" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" id="favicon" />
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+    <body>
+        <h1 id="title">Vibin' Party</h1>
+        <div id="options">
+            <div class="box" id="join">
+                <span>Join a room by code</span>
+                <div class="input">
+                    <input type="text" id="room-code" />
+                    <input type="button" value="Vibe" id="join-button"></input>
+                </div>
+            </div>
+            <div id="or">
+                <div class="big-line"></div>
+                <h1>OR</h1>
+                <div class="big-line"></div>
+            </div>
+            <div class="box" id="new">
+                <span>Create a new room</span>
+                <div class="input">
+                    <input type="button" value="Vibe" onclick="window.location.href = window.location.origin+'/'+genRandomId();"></input>
+                </div>
+            </div>
+        </div>
+        <img src="/res/vibin.gif" alt="logo image">
+        <script>
+function genRandomId() {
+    let a = Date.now().toString(36).split("").reverse();
+    let b = Math.floor(Math.random() * 2740506767242 + 80603140213).toString(36);
+    return a.reduce((str, v, k) => str + b.charAt(k) + v + (k == 3 ? "-" : ""), "");
+}
+
+function join() {
+    let input = document.getElementById("room-code");
+
+    var roomcode = input.value.match(/([a-z0-9]{8}\-[a-z0-9]{8})/i);
+
+    if (roomcode) {
+        window.location.href = window.location.origin+'/'+roomcode[0];
+    }
+
+    input.value = "";
+}
+
+document.getElementById("join-button").addEventListener("click", join);
+document.getElementById("room-code").addEventListener("keydown", (evt) => evt.code == "Enter" && join());
+        </script>
+        <script>
+let images = [];
+let canvas = document.createElement("canvas");
+canvas.width = 32;
+canvas.height = 32;
+canvas.style.display = "none";
+document.body.appendChild(canvas);
+let ctx = canvas.getContext("2d");
+let frame = 0;
+for (frame = 0; frame < 51; frame++) {
+    images[frame] = new Image();
+    images[frame].src = "/res/frames/" + frame.toString().padStart(2, "0") + ".png";
+}
+frame = 0;
+let favicon = document.getElementById("favicon");
+setInterval(function() {
+    if (!images[frame]) {
+        images[frame] = new Image();
+        images[frame].src = "/res/frames/" + frame.toString().padStart(2, "0") + ".png";
+    }
+    ctx.clearRect(0, 0, 32, 32);
+    ctx.drawImage(images[frame], 0, 0);
+    favicon.href = canvas.toDataURL('image/png');
+    frame = Math.floor(frame + 1) % 51;
+}, 120);
+        </script>
+    </body>
+</html>

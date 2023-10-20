@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow:hidden;
+    color: #FFF;
+    background: linear-gradient(30deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111)0 0 / 80px 140px, linear-gradient(150deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111)0 0 / 80px 140px, linear-gradient(30deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111)40px 70px / 80px 140px, linear-gradient(150deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111 )40px 70px / 80px 140px, linear-gradient(60deg, #222 25%, transparent 25.5%, transparent 75%, #222 75%, #222 ) 0 0 / 80px 140px, linear-gradient(60deg, #222 25%, transparent 25.5%, transparent 75%, #222 75%, #222)40px 70px / 80px 140px #333;
+}
+
+#title {
+    margin-bottom: 0 128px;
+    font-size: 150px;
+    font-family: 'Neonderthaw', cursive;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #BC13FE, 0 0 82px #BC13FE, 0 0 92px #BC13FE, 0 0 102px #BC13FE, 0 0 151px #BC13FE;
+}
+
+#options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 128px;
+}
+
+#options > .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25vw;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 3px;
+    background: #333;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+}
+
+#options > .box > span {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+#options > .box > .input {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+#options > .box > .input > input {
+    padding: 8px 16px;
+    background: #555;
+    color: #FFF;
+    border: none;
+}
+
+#options > .box > .input > input:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+#options > .box > .input > input:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#options > .box > .input > input~input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid #777;
+}
+
+#options > .box > .input > input[type=button] {
+    cursor: pointer;
+    text-shadow:0 0 0px rgba(255, 255, 255, 0);
+    transition: text-shadow 0.25s, background 0.25s;
+}
+
+#options > .box > .input > input[type=button]:hover {
+    background: #777;
+    color: #FFF;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 1), 0 0 4px #fff,0 0 10px #BC13FE, 0 0 15px #BC13FE, 0 0 20px #BC13FE, 0 0 30px #BC13FE;
+}
+
+#options > .box > .input > input[type=text] {
+    flex-grow: 1;
+}

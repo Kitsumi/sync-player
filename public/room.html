@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vibin' Party</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="theme-color" content="#FFFF00">
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" id="favicon" />
+        <link rel="stylesheet" href="/css/room.css">
+    </head>
+    <body>
+        <div id="background">
+            <h1 class="big-text">Nothing is playing.</h1>
+        </div>
+        <div id="player" style="display: none;">
+            <div id="player-inner"></div>
+            <div id="cat" style="opacity: 0;"></div>
+        </div>
+        
+        <div id="menu" class="open">
+            <div id="menu-bar">
+                <div id="code-box">
+                    <span class="subtitle">Room Code:</span>
+                    <code id="room-code">CodeCode-CodeCode</code>
+                </div>
+                <div id="name-button"><span>Change Name</span></div>
+                <div id="cat-button"><img src="/res/cat.svg" style="width:24px;height:24px"/><span>Hide Cat</span></div>
+                <div id="menu-button"><span>Close Menu</span></div>
+            </div>
+            <div id="users"></div>
+            <div id="queue-submit-box">
+                <input type="text" id="queue-submit" placeholder="Paste YouTube link."/>
+            </div>
+            <div id="queue"></div>
+        </div>
+
+        <div id="enter-room"><h1 class="big-text">Click to Vibe</h1></div>
+        <script src="/js/room.js" async defer></script>
+        <script>
+            let images = [];
+            let canvas = document.createElement("canvas");
+            canvas.width = 32;
+            canvas.height = 32;
+            canvas.style.display = "none";
+            document.body.appendChild(canvas);
+            let ctx = canvas.getContext("2d");
+            let frame = 0;
+            for (frame = 0; frame < 51; frame++) {
+                images[frame] = new Image();
+                images[frame].src = "/res/frames/" + frame.toString().padStart(2, "0") + ".png";
+            }
+            frame = 0;
+            let favicon = document.getElementById("favicon");
+            setInterval(function() {
+                if (!images[frame]) {
+                    images[frame] = new Image();
+                    images[frame].src = "/res/frames/" + frame.toString().padStart(2, "0") + ".png";
+                }
+                ctx.clearRect(0, 0, 32, 32);
+                ctx.drawImage(images[frame], 0, 0);
+                favicon.href = canvas.toDataURL('image/png');
+                frame = Math.floor(frame + 1) % 51;
+            }, 120);
+        </script>
+    </body>
+</html>
