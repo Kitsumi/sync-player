@@ -59,7 +59,7 @@ wss.on("connection", (socket) => {
                     delete RoomList[code];
                 }
             });
-        } else if (data.type == "change_name" && typeof data.name == "string" && data.name.length < 32) {
+        } else if (data.type == "change_name" && user.room == null && typeof data.name == "string" && data.name.length < 32 && Date.now() - user.lastNameChange >= 500) {
             let t = data.name.replace(/[^a-z0-9 ]/gi, "").replace(/\s+/gi, " ").trim();
             if (t.length >= 2) {
                 logger.log("Users", `User '${user.name}'(${user.id}) changed name to '${t}'`);
@@ -74,6 +74,7 @@ wss.on("connection", (socket) => {
             } else {
                 logger.log("Users", `User '${user.name}'(${user.id}) tried invalid name '${t}'`);
             }
+            user.lastNameChange = Date.now();
         }
     });
 
