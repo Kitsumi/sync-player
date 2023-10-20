@@ -85,3 +85,18 @@ body {
 #options > .box > .input > input[type=text] {
     flex-grow: 1;
 }
+
+#github {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 64px;
+    text-decoration: none;
+    color: #FFF;
+    text-shadow:0 0 0px rgba(255, 255, 255, 0);
+    transition: text-shadow 0.25s;
+}
+
+#github:hover {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 1), 0 0 4px #fff,0 0 10px #BC13FE, 0 0 15px #BC13FE, 0 0 20px #BC13FE, 0 0 30px #BC13FE;
+}
