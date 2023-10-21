@@ -6,7 +6,7 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    overflow:hidden;
+    overflow-x: hidden;
     color: #FFF;
     background: linear-gradient(30deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111)0 0 / 80px 140px, linear-gradient(150deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111)0 0 / 80px 140px, linear-gradient(30deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111)40px 70px / 80px 140px, linear-gradient(150deg, #111 12%, transparent 12.5%, transparent 87%, #111 87.5%, #111 )40px 70px / 80px 140px, linear-gradient(60deg, #222 25%, transparent 25.5%, transparent 75%, #222 75%, #222 ) 0 0 / 80px 140px, linear-gradient(60deg, #222 25%, transparent 25.5%, transparent 75%, #222 75%, #222)40px 70px / 80px 140px #333;
 }
